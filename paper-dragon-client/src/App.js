@@ -1,8 +1,9 @@
 import './App.css';
 import React, { Component } from 'react';
-import NoteContainer from './NoteContainer';
+// import NoteContainer from './NoteContainer';
+import NotesList from './NotesList';
 import { Route, Switch } from 'react-router-dom';
-
+import Navigation from './Navigation'
 
 class App extends Component {
 
@@ -23,7 +24,8 @@ class App extends Component {
   return (
     <div>
       'this is the app'
-      <NoteContainer />
+      <Navigation />
+      <Route path='/' component={NotesList} />
     </div>
   );}
 }
