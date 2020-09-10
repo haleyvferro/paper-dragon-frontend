@@ -1,10 +1,9 @@
 import './App.css';
+import { createStore } from 'redux';
 import React, { Component } from 'react';
-import NoteContainer from './NoteContainer';
-import { Route, Switch } from 'react-router-dom';
 
 
-class App extends Component {
+class NoteContainer extends Component {
 
   // const defaultState = {
   //   isCloudy: false
@@ -21,11 +20,8 @@ class App extends Component {
   // debugger;
   render(){
   return (
-    <div>
-      'this is the app'
-      <NoteContainer />
-    </div>
+    'this is the note container'
   );}
 }
 
-export default App;
+export default NoteContainer;
