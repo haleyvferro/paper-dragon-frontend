@@ -9,6 +9,9 @@ class Navigation extends React.Component {
           <NavLink to='/'> The Paper Dragon </NavLink>
         </div>
         <div className="right menu">
+          <NavLink to='/notes/new' className="item">
+            New Note
+          </NavLink>
           <NavLink to='/notes' className="item">
             My Notes
           </NavLink>

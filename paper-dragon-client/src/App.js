@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 // import NoteContainer from './NoteContainer';
 import NotesList from './NotesList';
+import NoteForm from './NoteForm';
 import { Route, Switch } from 'react-router-dom';
 import Navigation from './Navigation'
 
@@ -10,6 +11,7 @@ class App extends Component {
   return (
     <div>
       <Navigation />
+      <Route path='/notes/new' component={NoteForm} /><br/><br/>
       <Route path='/' component={NotesList} />
     </div>
   );}

@@ -8,9 +8,12 @@ const Note = props => {
         <div className="description">
             {`${props.note.copy}`}
         </div>
-        {/* <div onClick={props.handleDelete} className="ui red basic button">
-          Delete It
-        </div> */}
+        <div onClick={null} className="ui basic button">
+          Edit Note
+        </div>
+        <div onClick={null} className="ui basic button">
+          Delete Note
+        </div>
       </div>
     </div>
   );
