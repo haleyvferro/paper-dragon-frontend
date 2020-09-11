@@ -1,18 +1,46 @@
 import React, { Component } from 'react';
-import { fetchNotesSuccess } from './actions/index'
+import { fetchNotesSuccess } from './actions/index';
 import {connect} from 'react-redux'
+import Note from './Note'
 
 
 class NotesList extends Component {
+
+  componentDidMount(){
+    fetch('http://localhost:3002/notes')
+    .then(resp => resp.json())
+    .then(notesArr => {
+
+    this.props.fetchNotesSuccess(notesArr)
+    })
+  }
+
+  renderNotes = () => {
+    return this.props.notes.map(note => (
+      <Note
+        key={note.id}
+        note={note}
+      />
+    ));
+  }
+
   render(){
-    console.log(this.props)
   return (
-    'hi'
+    <div>
+        <h1>buncha notes</h1>
+        <div className="ui items">{this.renderNotes()}</div>
+    </div>
   );}
 }
 
-const readAccess = (Storestate) => {
-
+const mapStateToProps= (storeState) => {
+  return {
+    notes: storeState.notes,
+  }
 }
 
-export default connect()(NotesList)
+const mapDispatchToProps = {
+  fetchNotesSuccess
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotesList)
