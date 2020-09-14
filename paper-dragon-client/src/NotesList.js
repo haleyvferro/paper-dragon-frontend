@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchNotesSuccess } from './actions/index';
+import { deleteNote } from './actions/index';
 import {connect} from 'react-redux'
 import Note from './Note'
 
@@ -20,9 +21,11 @@ class NotesList extends Component {
       <Note
         key={note.id}
         note={note}
+        deleteNote={this.props.deleteNote}
       />
     ));
   }
+  
 
   render(){
   return (
@@ -40,7 +43,8 @@ const mapStateToProps= (storeState) => {
 }
 
 const mapDispatchToProps = {
-  fetchNotesSuccess
+  fetchNotesSuccess,
+  deleteNote,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NotesList)

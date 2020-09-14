@@ -5,9 +5,9 @@ export default function notes(state=initialState, action) {
         case 'FETCH_NOTES_SUCCESS':
             return[...action.notes]
         case 'ADD_NOTE':
-            return 'added'
+            return[...state, action.newNote]
         case 'DELETE_NOTE':
-            return 'deleted'
+            return state.filter(note => note.id !== action.noteId)
         default:
             return state
     }

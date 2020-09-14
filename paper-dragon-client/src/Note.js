@@ -1,21 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Note = props => {
+class Note extends Component {
+
+  handleDelete() {
+    const id = this.props.note.id
+    // console.log(id)
+    const reqObj = {
+      method: 'DELETE'
+    }
+    fetch(`http://localhost:3002/notes/${id}`, reqObj)
+    .then(resp => resp.json())
+    .then(data => {
+      this.props.deleteNote(id)
+    })
+  }
+
+render () {
   return (
-    <div className="item">
-      <div className="middle aligned content">
-        <div className="header">{`${props.note.title}`}</div>
-        <div className="description">
-            {`${props.note.copy}`}
-        </div>
-        <div onClick={null} className="ui basic button">
+    <div className="ui item">
+      <div>
+        <div className="ui dividing header">{`${this.props.note.title}`}</div>
+        <p>
+            {`${this.props.note.copy}`}
+        </p>
+        <div onClick={null} className="ui button">
           Edit Note
         </div>
-        <div onClick={null} className="ui basic button">
+        <div id={this.props.note.id} onClick={() => this.handleDelete()} className="ui button">
           Delete Note
-        </div>
+        </div> <br/><br/><br/>
       </div>
     </div>
   );
-};
+};}
 export default Note;

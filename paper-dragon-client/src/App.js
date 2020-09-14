@@ -10,9 +10,11 @@ class App extends Component {
   render(){
   return (
     <div>
-      <Navigation />
-      <Route path='/notes/new' component={NoteForm} /><br/><br/>
-      <Route path='/' component={NotesList} />
+    <Navigation />
+      <div className="ui container">
+        <Route path='/notes/new' component={NoteForm} /><br/><br/>
+        <Route path='/' component={NotesList} />
+      </div>
     </div>
   );}
 }
