@@ -25,7 +25,6 @@ class NoteForm extends Component {
 
   handleOnSubmit = (event) => { 
     event.preventDefault();
-    console.log('hello')
     const noteObj = {
       title: this.state.title,
       copy: this.state.copy,

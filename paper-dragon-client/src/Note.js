@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import { Link } from "react-router-dom";
+import { Button } from "semantic-ui-react";
+
 
 class Note extends Component {
 
@@ -23,9 +26,9 @@ render () {
         <p>
             {`${this.props.note.copy}`}
         </p>
-        <div onClick={null} className="ui button">
+        <Button as={Link} to={`notes/edit/${this.props.note.id}`} className="ui button">
           Edit Note
-        </div>
+        </Button>
         <div id={this.props.note.id} onClick={() => this.handleDelete()} className="ui button">
           Delete Note
         </div> <br/><br/><br/>

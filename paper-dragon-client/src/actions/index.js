@@ -19,6 +19,9 @@ export const deleteNote = (noteId) => {
     }
 }
 
-export const editNote = () => {
-
+export const updateNote = (note) => {
+    return {
+        type: 'UPDATE_NOTE',
+        note
+    }
 }
